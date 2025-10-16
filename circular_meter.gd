@@ -55,10 +55,10 @@ func _ready() -> void:
 
 func _draw() -> void:
 	var total_length : int = outer_length - inner_length
-  # draws the background
-	draw_polygon(ring_polygon(origin, inner_length, outer_length, 0.0, TAU, segments), PackedColorArray([background_color]))
-	# draws every ring
-  for ring in range(1, rings + 1):
+    # draws the background
+    draw_polygon(ring_polygon(origin, inner_length, outer_length, 0.0, TAU, segments), PackedColorArray([background_color]))
+    # draws every ring
+    for ring in range(1, rings + 1):
 		var inl : int = inner_length + float(total_length) * (float(ring - 1) / float(rings))
 		var outl : int = inner_length + float(total_length) * (float(ring) / float(rings))
 		var ring_poly_points : PackedVector2Array = ring_polygon(
@@ -78,8 +78,8 @@ func _draw() -> void:
 		)
 		draw_polygon(ring_poly_points, PackedColorArray([fill_color[(ring - 1) % fill_color.size()]]))
 		draw_polyline(ring_points, border_color, border_width, antialiasing)
-  # draws the final border
-	draw_polyline(
+  	# draws the final border
+  	draw_polyline(
 		ring_line(
 			origin, 
 			outer_length, 
@@ -90,4 +90,4 @@ func _draw() -> void:
 		border_color,
 		border_width,
 		antialiasing
-	)
+  	)
